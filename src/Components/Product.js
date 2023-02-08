@@ -6,6 +6,7 @@ function OneProduct(props) {
     src={props.product.slika}
     alt="Neka slika"
   />;
+
   
   return (
     <div className="card" >
@@ -17,7 +18,7 @@ function OneProduct(props) {
        
       </div>
       <div className="foot">
-      <button className="btn">
+      <button className="btn" onClick={() => props.kupi(props.product.rbr, props.product.naslov, props.product.cena)}>
         <BsPlusLg />
       </button>
       <p className="cenaProizvoda"><b>{props.product.cena}</b></p>

@@ -46,6 +46,10 @@
   margin-left: 10px;
 }
 
+.body{
+  background: url(../public/img/background.jpg);
+}
+
 .allProducts {
   display: flex;
   margin: 60px;
@@ -72,6 +76,7 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   max-width: 300px;
+  background-color: white;
 }
 
 .slika {

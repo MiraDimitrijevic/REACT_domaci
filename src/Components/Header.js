@@ -1,13 +1,14 @@
 import React from "react";
 import { BsBasketFill } from "react-icons/bs";
 
-function Header() {
+function Header(props) {
   return (
     <div className="header">
       <a href="">Korpa</a>
       <div className="korpa">
-        <BsBasketFill />
-        <p className="brojProizvodaUKorpi">0</p>
+      <BsBasketFill onClick={() => props.prikaziCenu()} />
+     
+        <p className="brojProizvodaUKorpi">{props.brProizvoda}</p>
       </div>
     </div>
   );

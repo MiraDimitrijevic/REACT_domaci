@@ -5,7 +5,7 @@ function AllProducts(props) {
   return (
     <div className="allProducts">
           {props.products.map((product) => (
-        <Product product={product} />
+        <Product product={product}           kupi={props.kupi}/>
       ))}
 
     </div>
