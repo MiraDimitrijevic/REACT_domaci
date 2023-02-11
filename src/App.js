@@ -10,11 +10,15 @@ function App() {
   let[ukupnaCena, setUkupnaCena]=useState(0);
   let[brTelefona, setBrTelefona]=useState("");
   let[email, setEmail]=useState("");
+ 
 
 
  const prikaziCenu=() =>{
   alert("Ukupna cena Vaše porudžbine je "+ukupnaCena+" dinara.");
  };
+
+
+
 
   const kupi = (rbr,naslov,cena) => {
     products.map((product) => {
@@ -22,7 +26,7 @@ function App() {
         setBrProizvoda(brProizvoda+1);
         alert("Proizvod " +naslov+" je uspesno dodat u korpu!");    
         setUkupnaCena(ukupnaCena+product.cena);
-
+        //map mora da vrati vrednost forEach ne mora
 
       }
     });
@@ -36,8 +40,23 @@ function App() {
 
   };
 
+  function pretraga(cena){
+    if(cena===0){
+      setTrenutnePr(products);
+    }else{
+      const pr=[];
+      var k=0;
+      products.forEach((product)=>{
+        if(product.cena<=cena){
+          pr[k++]=product;
+        }
+      });
+      setTrenutnePr(pr);
+    }
+  }
 
-  const products = [
+
+  const [products] =useState( [
     {
       rbr: 1,
       naslov: "Granule",
@@ -54,6 +73,7 @@ function App() {
         slika:"../img/p2.PNG",
            cena:1050,
 
+
     },
     {
       rbr: 3,
@@ -62,6 +82,7 @@ function App() {
         "Kombinacija 9 različitih vitamina i minerala neophodnih za zdravlje vašeg psa. Ne uzimati na svoju ruku,odnosno bez savetovanja sa vašim izabranim veterinarom. U kutiji možete naći uputstvo i 40 tableta, a upotreba zavisi od rase, visine i težine psa, kao i od specijalnih potreba. ",
         slika:"../img/p3.PNG",
         cena:1230,
+
     },
     {
       rbr: 4,
@@ -70,13 +91,15 @@ function App() {
         "Želite da naučite psa raznim trikovima? Onda su ovi slatkiši odličan izbor za Vas! Nema psa koji ih neće obožavati, ali budite pažljivi sa dnevnom količinom koju dalete Vašem ljubimcu. O tome se možete informisati na pakovanju.",
         slika:"../img/p4.PNG",
         cena:400,
+
     },
-  ];
+  ]);
+  const [trenutniPr, setTrenutnePr]=useState(products);
 
   return (
     <div className="App">
       <Header  brProizvoda={brProizvoda}  prikaziCenu={prikaziCenu}  />
-      <AllProducts products={products}  kupi={kupi}/>
+      <AllProducts products={trenutniPr}  kupi={kupi} pretraga={pretraga}/>
      <Footer prikaziKontakt={kontakt} brTelefona={brTelefona} prikaziMejl={prikaziMejl} email={email}/>
     </div>
   );

@@ -146,5 +146,24 @@ a {
   border-radius: 10px;
   max-width: 500px;
 }
+.pretraga{
+
+  display: flex;
+  flex-direction: row;
+   padding: 25px;
+  background-color: rgb(255, 255, 255);
+ 
+}
+.pretraziPolje{
+  display: flex;
+  height: 20px;
+ 
+}
+.btnP{
+  color: rgb(28, 65, 48);
+  margin-left: 5px;
+  font-size: large;
+}
+
 
 

@@ -14,7 +14,7 @@ function OneProduct(props) {
 
      {img1}
       <div className="card-body">
-        <p className="opisProizvoda">{props.product.opis}</p>
+      <p className="opisProizvoda">{props.product.opis}</p>
        
       </div>
       <div className="foot">
